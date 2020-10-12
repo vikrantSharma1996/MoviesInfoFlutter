@@ -36,7 +36,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     }
 
     previousFunction() {
-      _pageController.previousPage(duration: _kDuration, curve: _kCurve);
+      // _pageController.previousPage(duration: _kDuration, curve: _kCurve);
     }
 
     return Scaffold(
@@ -59,6 +59,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                /* CustomPaint(
+                  painter: PagI
+                )*/
                 Indicator(
                   positionIndex: 0,
                   currentIndex: currentIndex,
@@ -87,12 +90,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Container(
                 child: Row(
-                 
                   children: <Widget>[
                     InkWell(
-                        onTap: () => previousFunction(),
-                        child: Text("Previous")),
-                  
+                      onTap: () => previousFunction(),
+                      child: Text("SKIP",
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          )),
+                    ),
                   ],
                 ),
               ),
@@ -105,10 +112,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Container(
                 child: Row(
-                
                   children: <Widget>[
-                   
-                    InkWell(onTap: () => nextFunction(), child: Text("Next"))
+                    InkWell(
+                      onTap: () => nextFunction(),
+                      child: Text("NEXT",
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          )),
+                    ),
                   ],
                 ),
               ),
