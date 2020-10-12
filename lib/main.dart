@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import './OnBoardingScreen.dart';
 
-
 void main() {
   runApp(new MaterialApp(
     home: SplashScreen(),
@@ -20,7 +19,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   startTime() async {
-    var _duration = new Duration(seconds: 3);
+    var _duration = new Duration(seconds: 5);
     return new Timer(_duration, navigationPage);
   }
 
@@ -36,15 +35,17 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body:  Container(
-      
-      child: new Image.asset(
-        'assets/images/logo.png',
-        //fit: BoxFit.cover,
-        // height: double.infinity,
-        // width: double.infinity,
+    return Scaffold(
+      body: Center(
+        child: Container(
+          child: new Image.asset(
+            'assets/images/logo.png',
+            fit: BoxFit.cover,
+            height: 100,
+            width: 100,
+          ),
+        ),
       ),
-    ),);
-    
+    );
   }
 }
