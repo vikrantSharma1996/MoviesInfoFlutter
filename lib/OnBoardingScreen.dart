@@ -8,7 +8,7 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController _pageController;
-  int currentIndex = 0;
+  int _currentIndex = 0;
   static const _kDuration = const Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
   @override
@@ -25,14 +25,26 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String textHolder = 'NEXT';
     onChangedFunction(int index) {
       setState(() {
-        currentIndex = index;
+        _currentIndex = index;
+        // if (index == 3) {
+        //   textHolder = 'DONE';
+        // }
       });
+      print('current index : $index');
     }
 
     nextFunction() {
-      _pageController.nextPage(duration: _kDuration, curve: _kCurve);
+      print('current index : $_currentIndex');
+      if (_currentIndex == 3) {
+        setState(() {
+          textHolder = 'DONE';
+        });
+      } else {
+        _pageController.nextPage(duration: _kDuration, curve: _kCurve);
+      }
     }
 
     previousFunction() {
@@ -46,9 +58,94 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             onPageChanged: onChangedFunction,
             controller: _pageController,
             children: <Widget>[
-              Container(child: Text("First Screen")),
-              Container(child: Text("Second Screen")),
-              Container(child: Text("Third Screen"))
+              Container(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  new Image.asset('assets/images/slide1.png'),
+                  Text(
+                    'A Cool Way To Get Start',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
+              )),
+              Container(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  new Image.asset('assets/images/slide2.png'),
+                  Text(
+                    'Design Interactive App UI',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
+              )),
+              Container(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  new Image.asset('assets/images/slide3.png'),
+                  Text(
+                    'Its Just The Beginning',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
+              )),
+              Container(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  new Image.asset('assets/images/slide4.png'),
+                  Text(
+                    'Design Iteractive App UI',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
+              )),
             ],
           ),
           Positioned(
@@ -64,21 +161,28 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 )*/
                 Indicator(
                   positionIndex: 0,
-                  currentIndex: currentIndex,
+                  currentIndex: _currentIndex,
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 Indicator(
                   positionIndex: 1,
-                  currentIndex: currentIndex,
+                  currentIndex: _currentIndex,
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 Indicator(
                   positionIndex: 2,
-                  currentIndex: currentIndex,
+                  currentIndex: _currentIndex,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Indicator(
+                  positionIndex: 3,
+                  currentIndex: _currentIndex,
                 ),
               ],
             ),
@@ -114,8 +218,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 child: Row(
                   children: <Widget>[
                     InkWell(
-                      onTap: () => nextFunction(),
-                      child: Text("NEXT",
+                       onTap: ()  => nextFunction(), //{
+                      //   print('current index : $_currentIndex');
+                        
+                      //   if (_currentIndex == 3) {
+                      //     setState(() {
+                      //       textHolder = 'DONE';
+                      //     });
+                      //   } 
+                      //     _pageController.nextPage(
+                      //         duration: _kDuration, curve: _kCurve);
+                        
+                      // },
+                      child: Text('$textHolder',
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
