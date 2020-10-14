@@ -11,6 +11,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   int _currentIndex = 0;
   static const _kDuration = const Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
+
+  String textHolder;
   @override
   void initState() {
     super.initState();
@@ -25,32 +27,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String textHolder = 'NEXT';
     onChangedFunction(int index) {
       setState(() {
         _currentIndex = index;
-        // if (index == 3) {
-        //   textHolder = 'DONE';
-        // }
       });
       print('current index : $index');
     }
 
     nextFunction() {
       print('current index : $_currentIndex');
-      if (_currentIndex == 3) {
-        setState(() {
-          textHolder = 'DONE';
-        });
-      } else {
-        _pageController.nextPage(duration: _kDuration, curve: _kCurve);
-      }
+      _pageController.nextPage(duration: _kDuration, curve: _kCurve);
     }
 
     previousFunction() {
       // _pageController.previousPage(duration: _kDuration, curve: _kCurve);
     }
-
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -157,8 +148,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 /* CustomPaint(
-                  painter: PagI
-                )*/
+                      painter: PagI
+                    )*/
                 Indicator(
                   positionIndex: 0,
                   currentIndex: _currentIndex,
@@ -188,57 +179,52 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           Positioned(
-            bottom: 30,
+            bottom: 10,
             left: 0,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Container(
-                child: Row(
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () => previousFunction(),
-                      child: Text("SKIP",
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          )),
-                    ),
-                  ],
-                ),
+            child: Container(
+              child: Row(
+                children: <Widget>[
+                  FlatButton(
+                    onPressed: () => previousFunction(),
+                    child: Text("SKIP",
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        )),
+                  ),
+                ],
               ),
             ),
           ),
           Positioned(
-            bottom: 30,
+            bottom: 10,
             right: 0,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Container(
-                child: Row(
-                  children: <Widget>[
-                    InkWell(
-                       onTap: ()  => nextFunction(), //{
-                      //   print('current index : $_currentIndex');
-                        
-                      //   if (_currentIndex == 3) {
-                      //     setState(() {
-                      //       textHolder = 'DONE';
-                      //     });
-                      //   } 
-                      //     _pageController.nextPage(
-                      //         duration: _kDuration, curve: _kCurve);
-                        
-                      // },
-                      child: Text('$textHolder',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          )),
-                    ),
-                  ],
-                ),
+            child: Container(
+              child: Row(
+                children: <Widget>[
+                  FlatButton(
+                    onPressed: () => nextFunction(), //{
+                    //   print('current index : $_currentIndex');
+
+                    //   if (_currentIndex == 3) {
+                    //     setState(() {
+                    //       textHolder = 'DONE';
+                    //     });
+                    //   }
+                    //     _pageController.nextPage(
+                    //         duration: _kDuration, curve: _kCurve);
+
+                    // },
+                    child:
+                        Text(textHolder = _currentIndex < 3 ? 'NEXT' : 'DONE',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            )),
+                  ),
+                ],
               ),
             ),
           )
