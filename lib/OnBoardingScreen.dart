@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import './Indicator.dart';
 
@@ -12,7 +14,20 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   static const _kDuration = const Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
 
+  List<String> heading = [
+    'A Cool Way to Get Start',
+    'Design Interactive App UI',
+    'It is just the beginning',
+    'Fourth Screen'
+  ];
+  List<String> desc = [
+    'Lorem Ipsum is simply dummy text of the\nprinting and typesetting industry. when an\nunknown printer took a galley of type and\nscrambled it to make a type specimen book.',
+    'Lorem Ipsum is simply dummy text of the\nprinting and typesetting industry. when an\nunknown printer took a galley of type and\nscrambled it to make a type specimen book.',
+    'Lorem Ipsum is simply dummy text of the\nprinting and typesetting industry. when an\nunknown printer took a galley of type and\nscrambled it to make a type specimen book.',
+    'Lorem Ipsum is simply dummy text of the\nprinting and typesetting industry. when an\nunknown printer took a galley of type and\nscrambled it to make a type specimen book.',
+  ];
   String textHolder;
+
   @override
   void initState() {
     super.initState();
@@ -49,92 +64,144 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             onPageChanged: onChangedFunction,
             controller: _pageController,
             children: <Widget>[
+              //First Screen
               Container(
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  new Image.asset('assets/images/slide1.png'),
-                  Text(
-                    'A Cool Way To Get Start',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
+//                crossAxisAlignment: CrossAxisAlignment.stretch,
+                //  mainAxisAlignment:
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/images/logo.png',
+                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
+                  ),
+                  SizedBox(height: 30),
+                  Center(
+                    child: Text(
+                      heading[0],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
+                  SizedBox(height: 20),
+                  Center(
                     child: Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                      textAlign: TextAlign.center,
+                      desc[0],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
-                  )
+                  ),
                 ],
               )),
+              //Second Screen
               Container(
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  new Image.asset('assets/images/slide2.png'),
-                  Text(
-                    'Design Interactive App UI',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
+//                crossAxisAlignment: CrossAxisAlignment.stretch,
+                //  mainAxisAlignment:
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/images/logo.png',
+                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
+                  ),
+                  SizedBox(height: 30),
+                  Center(
+                    child: Text(
+                      heading[1],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
+                  SizedBox(height: 20),
+                  Center(
                     child: Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                      textAlign: TextAlign.center,
+                      desc[1],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
-                  )
+                  ),
                 ],
               )),
+              //Third Screen
               Container(
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  new Image.asset('assets/images/slide3.png'),
-                  Text(
-                    'Its Just The Beginning',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
+//                crossAxisAlignment: CrossAxisAlignment.stretch,
+                //  mainAxisAlignment:
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/images/logo.png',
+                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
+                  ),
+                  SizedBox(height: 30),
+                  Center(
+                    child: Text(
+                      heading[2],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
+                  SizedBox(height: 20),
+                  Center(
                     child: Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                      textAlign: TextAlign.center,
+                      desc[2],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
-                  )
+                  ),
                 ],
               )),
+              //Fourth Screen
               Container(
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  new Image.asset('assets/images/slide4.png'),
-                  Text(
-                    'Design Iteractive App UI',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
+//                crossAxisAlignment: CrossAxisAlignment.stretch,
+                //  mainAxisAlignment:
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/images/logo.png',
+                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
+                  ),
+                  SizedBox(height: 30),
+                  Center(
+                    child: Text(
+                      heading[3],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
+                  SizedBox(height: 20),
+                  Center(
                     child: Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                      textAlign: TextAlign.center,
+                      desc[3],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
-                  )
+                  ),
                 ],
               )),
             ],
