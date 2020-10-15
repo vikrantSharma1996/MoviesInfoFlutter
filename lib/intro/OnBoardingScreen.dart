@@ -1,7 +1,8 @@
 import 'dart:core';
 
+import 'package:MoviesInfoFlutter/intro/welcomeScreen.dart';
 import 'package:flutter/material.dart';
-import './Indicator.dart';
+import 'Indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   @override
@@ -51,12 +52,24 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
     nextFunction() {
       print('current index : $_currentIndex');
-      _pageController.nextPage(duration: _kDuration, curve: _kCurve);
+      if (_currentIndex < 3) {
+        _currentIndex++;
+        _pageController.nextPage(duration: _kDuration, curve: _kCurve);
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        );
+      }
     }
 
     previousFunction() {
-      // _pageController.previousPage(duration: _kDuration, curve: _kCurve);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+      );
     }
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -71,11 +84,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 //                crossAxisAlignment: CrossAxisAlignment.stretch,
                 //  mainAxisAlignment:
                 children: <Widget>[
-                  new Image.asset(
-                    'assets/images/logo.png',
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
+                  ClipOval(
+                    child: new Image.asset(
+                      'assets/images/slide1.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   SizedBox(height: 30),
                   Center(
@@ -106,11 +119,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 //                crossAxisAlignment: CrossAxisAlignment.stretch,
                 //  mainAxisAlignment:
                 children: <Widget>[
-                  new Image.asset(
-                    'assets/images/logo.png',
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
+                  ClipOval(
+                    child: new Image.asset(
+                      'assets/images/slide2.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   SizedBox(height: 30),
                   Center(
@@ -141,11 +154,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 //                crossAxisAlignment: CrossAxisAlignment.stretch,
                 //  mainAxisAlignment:
                 children: <Widget>[
-                  new Image.asset(
-                    'assets/images/logo.png',
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
+                  ClipOval(
+                    child: new Image.asset(
+                      'assets/images/slide3.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   SizedBox(height: 30),
                   Center(
@@ -176,11 +189,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 //                crossAxisAlignment: CrossAxisAlignment.stretch,
                 //  mainAxisAlignment:
                 children: <Widget>[
-                  new Image.asset(
-                    'assets/images/logo.png',
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
+                  ClipOval(
+                    child: new Image.asset(
+                      'assets/images/slide4.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   SizedBox(height: 30),
                   Center(

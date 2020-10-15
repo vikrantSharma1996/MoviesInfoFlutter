@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import './OnBoardingScreen.dart';
+import 'intro/OnBoardingScreen.dart';
 
 void main() {
   runApp(new MaterialApp(
