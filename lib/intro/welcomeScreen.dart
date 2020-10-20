@@ -1,3 +1,4 @@
+import 'package:MoviesInfoFlutter/homeScreen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -42,7 +43,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           ),
           SizedBox(height: 40),
           GestureDetector(
-              onTap: () {},
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()),);},
               child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 40),
                   height: 60,
